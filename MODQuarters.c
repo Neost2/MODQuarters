@@ -70,7 +70,7 @@ int Bet(int bet, int valid_input, int quarters, double cash)
 
         if (valid_input && num >= 95)
         {
-            printf("Reel stopped on the number: %.0lf \n", num);
+            printf("Reel stopped on the number: %.0f \n", num);
             cash = (cash - real_bet);
             printf("Jackpot! You triple your money!\n\n");
             cash = (cash + (real_bet * 3));
@@ -78,7 +78,7 @@ int Bet(int bet, int valid_input, int quarters, double cash)
         else if (num1 < 50)
         {
 
-            printf("Reel stopped on the number: %.0lf \n", num1);
+            printf("Reel stopped on the number: %.0f \n", num);
             printf("You lose!\n\n");
             cash = (cash - real_bet);
 
@@ -86,7 +86,7 @@ int Bet(int bet, int valid_input, int quarters, double cash)
         else if ((num1 >= 51) && (num1 <= 74))
         {
 
-            printf("Reel stopped on the number: %.0lf \n", num1);
+            printf("Reel stopped on the number: %.0f \n", num);
             cash = (cash - real_bet);
             printf("You get your money back! \n\n");
             cash = (cash + real_bet);
@@ -96,7 +96,7 @@ int Bet(int bet, int valid_input, int quarters, double cash)
         else if ((num1 >= 75) && (num1 <= 94))
         {
 
-            printf("Reel stopped on the number: %.0lf \n", num1);
+            printf("Reel stopped on the number: %.0f \n", num);
             cash = (cash - real_bet);
             printf("You doubled your money! \n\n");
             cash = (cash + (real_bet * 2));
