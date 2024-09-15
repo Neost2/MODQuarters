@@ -7,11 +7,15 @@ int quarters;
 int bet;
 int num;
 //MODS
+
+
 int WelcomeMSG(int quarters)
 {
 	printf("Welcome to the Betting Game!\n");
 	printf("You have $%d worth of quarters.\n\n", quarters / 4);
 }
+
+
 int Bet(int bet1, int quarters)
 {
   
@@ -31,7 +35,7 @@ int Bet(int bet1, int quarters)
         }
         if (bet > quarters)
             {
-             printf("Invalid bet. Please enter a valid number of quarters. \n\n");
+             printf("Invalid bet. Please enter a valid number of quarters. \n");
 
             }else
             {
@@ -42,7 +46,8 @@ int Bet(int bet1, int quarters)
 
 }
 
-    int validBET(int bet, int num, int quarters1)
+
+int validBET(int bet, int num1, int quarters1)
     {
        if (bet == 0)
        {
