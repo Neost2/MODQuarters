@@ -103,7 +103,7 @@ int validBET(int bet, int num1, int quarters1)
         break;
     default:
         printf("Invalid number something wrong");
-        return bet, num, quaters;
+        return bet, num, quarters;
         }
        
        
