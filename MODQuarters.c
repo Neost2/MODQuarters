@@ -7,7 +7,7 @@
 #define INVALID_INPUT  0
 
 //MODS
-void WelcomeMSG(double cash)
+double WelcomeMSG(double cash)
 {
 	
 	printf("Welcome to the Betting Game!\n");
