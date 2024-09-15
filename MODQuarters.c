@@ -3,104 +3,88 @@
 #include <ctype.h>
 #include <time.h>
 
-#define VALID_INPUT    1
-#define INVALID_INPUT  0
-
+int quarters;
+int bet;
+int num;
 //MODS
-double WelcomeMSG(double cash)
+int WelcomeMSG(int quarters)
 {
-	
 	printf("Welcome to the Betting Game!\n");
-	printf("You have $%.0f worth of quarters.\n\n", cash);
+	printf("You have $%d worth of quarters.\n\n", quarters / 4);
 }
-int Bet(int bet, int valid_input, int quarters, double cash)
+int Bet(int bet1, int quarters)
 {
-    int i = bet; char input = (char)i;
-    
-    //char input[4] = bet;
-
-
-    while (1)
+  
+        
+    while (quarters > 0)
     {
-
-        printf("You have %i quarters ($%.2f).\n", quarters, cash);
+       
+      
+        printf("You have %d quarters ($%.2f).\n", quarters, quarters * .25);
         printf("Enter the number of quarters to bet (or 0 to cash out): ");
-        fgets(input, sizeof(input), stdin);
-        if (input[0] == '0')
+        scanf("%d", &bet);
+        
+        if (bet == '0')
         {
-            printf("Cashing out. You ended with $%.2f.\n", cash);
-            return bet, valid_input, quarters, cash;
+            //printf("Cashing out. You ended with $%.2f.\n", quarters * .25);
+            return bet, quarters;
         }
-
-        for (int i = 0; input[i] != '\0'; i++) {
-            if (input[i] == '\n') {
-                input[i] = '\0';
-                break;
-            }
-            if (!isdigit(input[i]) && input[i] != '-') {
-                valid_input = INVALID_INPUT;
-                break;
-            }
-            double toohigh = (atoi(input) * .25);
-            if (toohigh > cash)
+        if (bet > quarters)
             {
-                valid_input = INVALID_INPUT;
-                break;
-            }
-        }
-        if (valid_input = VALID_INPUT)
-        {
-            bet = atoi(input);
-            return bet, valid_input, quarters, cash;
-        }else
-        {
-            printf("Invalid bet. Please enter a valid number of quarters. \n\n");
-        }
+             printf("Invalid bet. Please enter a valid number of quarters. \n\n");
 
-        }
-    }
+            }else
+            {
+                return bet, quarters;
+            }
+
+    }    
+
 }
 
-    int validBET(int bet, int num, int valid_input, double cash)
+    int validBET(int bet, int num, int quarters1)
     {
-        double real_bet;
-        real_bet = (bet * .25);
-      
-
-
-        if (valid_input && num >= 95)
+       if (bet == 0)
+       {
+        return bet, num, quarters;
+       }else if (num >= 95)
         {
-            printf("Reel stopped on the number: %.0f \n", num);
-            cash = (cash - real_bet);
+            printf("Reel stopped on the number: %d \n", num);
+            quarters = (quarters - bet);
             printf("Jackpot! You triple your money!\n\n");
-            cash = (cash + (real_bet * 3));
+            quarters = (quarters + (bet * 3));
+            
+            return bet, num, quarters;
         }
-        else if (num1 < 50)
+        else if (num < 50)
         {
 
-            printf("Reel stopped on the number: %.0f \n", num);
+            printf("Reel stopped on the number: %d \n", num);
             printf("You lose!\n\n");
-            cash = (cash - real_bet);
-
+            quarters = (quarters - bet);
+          
+            return bet, num, quarters;
         }
-        else if ((num1 >= 51) && (num1 <= 74))
+        else if ((num >= 51) && (num <= 74))
         {
 
-            printf("Reel stopped on the number: %.0f \n", num);
-            cash = (cash - real_bet);
+            printf("Reel stopped on the number: %d \n", num);
+            quarters = (quarters - bet);
             printf("You get your money back! \n\n");
-            cash = (cash + real_bet);
-
+            quarters = (quarters + bet);
+         
+           return bet, num, quarters;
 
         }
-        else if ((num1 >= 75) && (num1 <= 94))
+        else if ((num >= 75) && (num <= 94))
         {
 
-            printf("Reel stopped on the number: %.0f \n", num);
-            cash = (cash - real_bet);
+            printf("Reel stopped on the number: %d \n", num);
+            quarters = (quarters - bet);
             printf("You doubled your money! \n\n");
-            cash = (cash + (real_bet * 2));
-
+            quarters = (quarters + (bet * 2));
+            
+           return bet, num, quarters;
         }
 
 
@@ -109,32 +93,23 @@ int Bet(int bet, int valid_input, int quarters, double cash)
 
 int main(void)
 {
-	double cash = 20;
-    int quarters = cash * 4;
-    int valid_input = VALID_INPUT;
-    int bet = 1;
-    int num;
+	
 
-    srand(time(NULL));
-    num = (rand() % (100 - 1 + 1));
-
-	WelcomeMSG(cash);
-    while (bet != 0)
+	WelcomeMSG(quarters = 80);
+    do 
     {
-      Bet(bet, valid_input, quarters, cash);
-        if (bet != 0)
-        {
-            realBET(bet, num, valid_input, cash);
-        }
-        else
-        {
-            return 0;
-        }
-         if (cash == 0) 
+        srand(time(NULL));
+        
+      Bet(bet, quarters);
+      validBET(bet, num = (rand() % (100 + 1)), quarters);
+         if (quarters == 0) 
              {
                 printf("Game Over\n");
                     return 0;
              }
-    }
+    }while (bet != 0);
+    
+       printf("Cashing out. You ended with $%.2f.\n", quarters * .25);
+    
     return 0;
 }
