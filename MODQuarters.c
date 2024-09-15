@@ -118,13 +118,13 @@ int main(void)
     srand(time(NULL));
     num = (rand() % (100 - 1 + 1));
 
-	void WelcomeMSG(cash);
+	WelcomeMSG(cash);
     while (bet != 0)
     {
-        int Bet(bet, valid_input, quarters, cash);
+      Bet(bet, valid_input, quarters, cash);
         if (bet != 0)
         {
-            int realBET(bet, num, valid_input, cash);
+            realBET(bet, num, valid_input, cash);
         }
         else
         {
