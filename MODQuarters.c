@@ -33,9 +33,9 @@ int Bet(int bet1, int quarters)
             //printf("Cashing out. You ended with $%.2f.\n", quarters * .25);
             return bet, quarters;
         }
-        if (bet > quarters)
+        if (bet < 0 || bet > quarters)
             {
-             printf("Invalid bet. Please enter a valid number of quarters. \n");
+             printf("Invalid bet. Please enter a valid number of quarters. \n\n");
 
             }else
             {
