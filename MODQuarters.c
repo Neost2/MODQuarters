@@ -15,7 +15,9 @@ void WelcomeMSG(double cash)
 }
 int Bet(int bet, int valid_input, int quarters, double cash)
 {
-    char input[4] = bet;
+    int i = bet; char input = (char)i;
+    
+    //char input[4] = bet;
 
 
     while (1)
@@ -39,7 +41,7 @@ int Bet(int bet, int valid_input, int quarters, double cash)
                 valid_input = INVALID_INPUT;
                 break;
             }
-            double toohigh = (atoi(input) * real_bet1);
+            double toohigh = (atoi(input) * .25);
             if (toohigh > cash)
             {
                 valid_input = INVALID_INPUT;
@@ -59,7 +61,7 @@ int Bet(int bet, int valid_input, int quarters, double cash)
     }
 }
 
-    int validBET(int bet, int num, int valid_input double cash)
+    int validBET(int bet, int num, int valid_input, double cash)
     {
         double real_bet;
         real_bet = (bet * .25);
@@ -114,7 +116,7 @@ int main(void)
     int num;
 
     srand(time(NULL));
-    num1 = (rand() % (100 - 1 + 1));
+    num = (rand() % (100 - 1 + 1));
 
 	void WelcomeMSG(cash);
     while (bet != 0)
