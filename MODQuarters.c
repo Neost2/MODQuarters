@@ -35,7 +35,7 @@ int Bet(int bet1, int quarters)
         }
         if (bet < 0 || bet > quarters)
             {
-             printf("Invalid bet. Please enter a valid number of quarters. \n\n");
+             printf("Invalid bet. Please enter a valid number of quarters.\n\n");
 
             }else
             {
@@ -79,14 +79,14 @@ int validBET(int bet, int num1, int quarters1)
         return bet, num, quarters;
         break;
     case 2:
-        printf("Reel stopped on the number: %d \n", num);
+        printf("Reel stopped on the number: %d\n", num);
         printf("You lose!\n\n");
         quarters = (quarters - bet);
 
         return bet, num, quarters;
         break;
     case 3:
-        printf("Reel stopped on the number: %d \n", num);
+        printf("Reel stopped on the number: %d\n", num);
         quarters = (quarters - bet);
         printf("You get your money back! \n\n");
         quarters = (quarters + bet);
@@ -94,7 +94,7 @@ int validBET(int bet, int num1, int quarters1)
         return bet, num, quarters;
         break;
     case 4:
-        printf("Reel stopped on the number: %d \n", num);
+        printf("Reel stopped on the number: %d\n", num);
         quarters = (quarters - bet);
         printf("You doubled your money! \n\n");
         quarters = (quarters + (bet * 2));
